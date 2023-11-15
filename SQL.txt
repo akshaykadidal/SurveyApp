@@ -1,0 +1,9 @@
+CREATE TABLE responses (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    server_details TEXT,
+    PI_Element TEXT,
+    persists_data BOOLEAN,
+    tokenizes_data BOOLEAN,
+    retrievable_data BOOLEAN,
+    email TEXT
+);

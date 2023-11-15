@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Server Data Survey</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="banner">
+        <h1>Server Data Survey</h1>
+    </div>
+    <form action="/submit" method="post">
+        <div class="input-section">
+            <label for="server-details">Server Details:</label>
+            <input type="text" id="server-details" name="server_details" placeholder="Enter server details" required>
+        </div>
+        <div class="checkbox-section">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Data Element</th>
+                        <th>Persists Data</th>
+                        <th>Tokenizes Data</th>
+                        <th>Data Is Retrievable</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Loop through your 200 data elements -->
+                    {% for data_element in data_elements %}
+                        <tr>
+                            <td>{{ data_element }}</td>
+                            <td><input type="checkbox" name="persists_data"></td>
+                            <td><input type="checkbox" name="tokenizes_data"></td>
+                            <td><input type="checkbox" name="retrievable_data"></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="input-section">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+        <div class="submit-button">
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+</body>
+</html>
